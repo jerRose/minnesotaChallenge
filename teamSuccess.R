@@ -92,3 +92,5 @@ plot3d(corrMatrixLogistic$midVal, corrMatrixLogistic$steepVal, corrMatrixLogisti
 ggplot(fullTeamPerformance, aes(teamPerfLogistic, diffFromAvgAtt)) + geom_point(aes(color = as.factor(weekend))) + geom_smooth(se = F, aes(fill = as.factor(weekend))) + geom_smooth(method = 'lm', se = F, color = 'red')
 ggplot(fullTeamPerformance[fullTeamPerformance$weekend == 1,], aes(teamPerfLogistic, diffFromAvgAtt)) + geom_point(aes(color = as.factor(weekend))) + geom_smooth(se = F, aes(fill = as.factor(weekend))) + geom_smooth(method = 'lm', se = F, color = 'red')
 ggplot(fullTeamPerformance[fullTeamPerformance$weekend == 0,], aes(teamPerfLogistic, diffFromAvgAtt)) + geom_point(aes(color = as.factor(weekend))) + geom_smooth(se = F, aes(fill = as.factor(weekend))) + geom_smooth(method = 'lm', se = F, color = 'red')
+
+lololol
