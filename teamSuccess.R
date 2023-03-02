@@ -67,9 +67,7 @@ fullTeamPerformance <- elo538wInit %>%
 ggplot(fullTeamPerformance, aes(teamPerfLogistic, diffFromAvgAtt)) + geom_point(aes(color = as.factor(weekend))) + geom_smooth(method = 'lm', se = F, aes(fill = as.factor(weekend))) + geom_smooth(method = 'lm', se = F, color = 'red')
 
 cor(fullTeamPerformance[fullTeamPerformance$weekend == 0,]$teamPerfLogistic, fullTeamPerformance[fullTeamPerformance$weekend == 0,]$diffFromAvgAtt, use="complete.obs")
-
-
-
+##
 measureLogistic <- function(midVal, steepVal){
   ft <- fullTeamPerformance %>%
     mutate(teamPerfLogistic = eloDiff1 * logisticFunction(middleVal = midVal, steepness = steepVal, x = gameNum2))
@@ -82,7 +80,6 @@ measureLogistic <- function(midVal, steepVal){
   names(finalMat) <- c('midVal', 'steepVal', 'corAll', 'corWeekend', 'corWeekday')
   return(finalMat)
 }
-
 midValVec <- seq.int(0, 162, by = .5)
 steepValVec <- seq.int(0, 1, by = .005)
 allCombs <- expand.grid(midValVec, steepValVec)
@@ -92,5 +89,3 @@ plot3d(corrMatrixLogistic$midVal, corrMatrixLogistic$steepVal, corrMatrixLogisti
 ggplot(fullTeamPerformance, aes(teamPerfLogistic, diffFromAvgAtt)) + geom_point(aes(color = as.factor(weekend))) + geom_smooth(se = F, aes(fill = as.factor(weekend))) + geom_smooth(method = 'lm', se = F, color = 'red')
 ggplot(fullTeamPerformance[fullTeamPerformance$weekend == 1,], aes(teamPerfLogistic, diffFromAvgAtt)) + geom_point(aes(color = as.factor(weekend))) + geom_smooth(se = F, aes(fill = as.factor(weekend))) + geom_smooth(method = 'lm', se = F, color = 'red')
 ggplot(fullTeamPerformance[fullTeamPerformance$weekend == 0,], aes(teamPerfLogistic, diffFromAvgAtt)) + geom_point(aes(color = as.factor(weekend))) + geom_smooth(se = F, aes(fill = as.factor(weekend))) + geom_smooth(method = 'lm', se = F, color = 'red')
-
-lololol
